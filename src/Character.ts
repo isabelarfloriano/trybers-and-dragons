@@ -3,6 +3,7 @@ import Race, { Elf } from './Races';
 import Energy from './Energy';
 import getRandomInt from './utils';
 import Fighter from './Fighter/Fighter';
+import { SimpleFighter } from './Fighter';
 
 class Character implements Fighter {
   private _race: Race;
@@ -65,7 +66,7 @@ class Character implements Fighter {
     return this._lifePoints;
   }
 
-  public attack(enemy: Fighter): void {
+  public attack(enemy: Fighter | SimpleFighter): void {
     const attackPoints = this._strength;
     enemy.receiveDamage(attackPoints);
   }
